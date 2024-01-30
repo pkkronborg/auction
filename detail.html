@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content="Auction - the best auction site" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Auction - Listings - Details</title>
+    <link rel="stylesheet" href="../dist/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body class="container-fluid px-0">
+    <header class="bg-primary px-3">
+      <nav
+        id="navbar"
+        class="navbar navbar-expand d-flex justify-content-between col-sm-10 mx-auto"
+      >
+        <a class="navbar-brand" href="/index.html">Auction</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="list.html">List</a>
+          </li>
+          <li class="nav-item"></li>
+          <li class="nav-item">
+            <button
+              type="button"
+              class="btn btn-primary active rounded-0"
+              data-bs-toggle="modal"
+              data-bs-target="#registerModal"
+            >
+              Register
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              type="button"
+              class="btn btn-primary active rounded-0"
+              data-bs-toggle="modal"
+              data-bs-target="#loginModal"
+            >
+              Log in
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container">
+      <div id="deleteError" class="text-danger"></div>
+
+      <div>
+        <div id="detailListing"></div>
+        <div id="options" class="flex-row justify-content-center mt-3 mb-3">
+          <div class="flex-column">
+            <form id="bidForm">
+              <label for="bid" class="fw-bold">Bid</label>
+              <input type="number" id="bid" class="bid-input" />
+              <button type="submit" class="btn border btn-primary rounded-0">
+                Bid now!
+              </button>
+            </form>
+            <div id="bidError" class="text-danger"></div>
+          </div>
+        </div>
+        <div id="myOptions">
+          <div class="d-flex flex-row justify-content-center mt-4">
+            <form id="deleteButton">
+              <button
+                class="btn btn-primary rounded-0"
+                type="submit"
+                value="deleteButton"
+              >
+                Delete
+              </button>
+            </form>
+            <button class="btn btn-primary rounded-0" id="editButton">
+              Update
+            </button>
+          </div>
+        </div>
+        <div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Amount</th>
+                <th scope="col">Bidder</th>
+                <th scope="col">Date</th>
+              </tr>
+            </thead>
+            <tbody id="bidList"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <footer class="text-center"></footer>
+    <script type="module" src="src/js/getListingDetails.js"></script>
+    <script type="module" src="src/js/deleteListing.js"></script>
+  </body>
+</html>

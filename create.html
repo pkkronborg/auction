@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="description" content="Auctin - the best auction site" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <title>Auction - Home</title>
+    <link rel="stylesheet" href="dist/css/index.css" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <body>
+    <header class="bg-primary px-3">
+      <nav
+        id="navbar"
+        class="navbar navbar-expand d-flex justify-content-between col-sm-10 mx-auto"
+      >
+        <a class="navbar-brand" href="/index.html">Auction</a>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="list.html">List</a>
+          </li>
+          <li class="nav-item">
+            <a href="profile.html">Profile</a>
+          </li>
+          <li class="nav-item">
+            <button
+              type="button"
+              class="btn btn-primary active"
+              data-bs-toggle="modal"
+              data-bs-target="#registerModal"
+            >
+              Register
+            </button>
+          </li>
+          <li class="nav-item">
+            <button
+              type="button"
+              class="btn btn-primary active"
+              data-bs-toggle="modal"
+              data-bs-target="#loginModal"
+            >
+              Log in
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="container row m-auto">
+      <div class="col-12 col-lg-6 col-md-8 m-auto">
+        <h1 class="text-center mt-4">Create listings</h1>
+        <form id="createForm" novalidate>
+          <div class="pt-4">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              class="form-control rounded-0"
+              id="title"
+              required
+            />
+            <div id="titleMessage"></div>
+          </div>
+          <div class="pt-4">
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              class="form-control rounded-0"
+              id="description"
+              rows="3"
+              required
+            ></textarea>
+            <div id="descriptionMessage"></div>
+          </div>
+          <div class="pt-4">
+            <label for="media" class="form-label">Picture</label>
+            <input
+              type="text"
+              class="form-control rounded-0 pictures"
+              id="media"
+              required
+            />
+            <div id="mediaMessage"></div>
+          </div>
+
+          <div class="pt-2">
+            <button
+              class="btn btn-secondary rounded-0"
+              type="button"
+              id="addFields"
+            >
+              Add more pictures
+            </button>
+          </div>
+          <div class="pt-2" id="galleryInputs"></div>
+          <div class="pt-4">
+            <label for="endsAt" class="form-label">Auction ends at</label>
+            <input
+              type="datetime-local"
+              class="form-control rounded-0"
+              id="endsAt"
+              required
+            />
+            <div id="dateMessage"></div>
+          </div>
+          <div class="text-center">
+            <button
+              class="btn btn-primary mt-4 rounded-0"
+              type="submit"
+              value="create"
+              id="createButton"
+            >
+              Create listing now!
+            </button>
+          </div>
+          <div id="createError" class="text-danger"></div>
+        </form>
+      </div>
+    </main>
+    <script type="module" src="../src/js/postListings.js"></script>
+  </body>
+  <footer></footer>
+</html>
