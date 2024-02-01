@@ -1,0 +1,25 @@
+.media {
+  height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.detailsMedia {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.avatar {
+  max-height: 200px;
+  max-width: 200px;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.bid-input {
+  padding: 3px 6px 7px 6px;
+}
+
+/*# sourceMappingURL=index.css.map */
