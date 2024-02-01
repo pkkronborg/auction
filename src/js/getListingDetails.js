@@ -12,11 +12,14 @@ const logInButton = document.getElementById("logIn");
 const logOutButton = document.getElementById("logOut");
 const navSell = document.getElementById("navSell");
 const navProfile = document.getElementById("navProfile");
+const notLogedIn = document.getElementById("notLogedIn");
 
 function isLogedIn(detailData) {
   if (auth && username) {
     registerButton.style.display = "none";
     logInButton.style.display = "none";
+    notLogedIn.style.display = "none";
+    notLogedIn.classList.remove("d-flex");
     if (username === detailData.seller.name) {
       options.style.display = "none";
     } else {
