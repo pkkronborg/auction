@@ -7,13 +7,24 @@ const getUrl = `https://api.noroff.dev/api/v1/auction/listings/${id}?_seller=tru
 const detailListing = document.getElementById("detailListing");
 const options = document.getElementById("options");
 const myOptions = document.getElementById("myOptions");
+const registerButton = document.getElementById("register");
+const logInButton = document.getElementById("logIn");
+const logOutButton = document.getElementById("logOut");
 
 function isLogedIn(detailData) {
-  if (username === detailData.seller.name) {
-    options.style.display = "none";
+  if (auth && username) {
+    registerButton.style.display = "none";
+    logInButton.style.display = "none";
+    if (username === detailData.seller.name) {
+      options.style.display = "none";
+    } else {
+      myOptions.style.display = "none";
+      options.classList.add("d-flex");
+    }
   } else {
+    logOutButton.style.display = "none";
+    options.style.display = "none";
     myOptions.style.display = "none";
-    options.classList.add("d-flex");
   }
 }
 

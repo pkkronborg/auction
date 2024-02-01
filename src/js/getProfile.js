@@ -1,6 +1,21 @@
 import { auth, username } from "./auth.js";
 const getUrl = `https://api.noroff.dev/api/v1/auction/profiles/${username}?_listings=true`;
 
+const registerButton = document.getElementById("register");
+const logInButton = document.getElementById("logIn");
+const logOutButton = document.getElementById("logOut");
+
+function isLogedIn() {
+  if (auth && username) {
+    registerButton.style.display = "none";
+    logInButton.style.display = "none";
+  } else {
+    logOutButton.style.display = "none";
+  }
+}
+
+isLogedIn();
+
 const profilePage = document.getElementById("profilePage");
 const userListings = document.getElementById("userListings");
 

@@ -1,4 +1,4 @@
-import { auth } from "./auth.js";
+import { auth, username } from "./auth.js";
 const queryStringPut = document.location.search;
 const putParams = new URLSearchParams(queryStringPut);
 const listingId = putParams.get("id");
@@ -13,6 +13,17 @@ const editAddFields = document.getElementById("editAddFields");
 const editRemoveFields = document.getElementById("editRemoveFields");
 const galleryInputs = document.getElementById("galleryInputs");
 let inputs = 0;
+
+function isLogedIn() {
+  if (auth && username) {
+    registerButton.style.display = "none";
+    logInButton.style.display = "none";
+  } else {
+    logOutButton.style.display = "none";
+  }
+}
+
+isLogedIn();
 
 function addGalleryInputs() {
   inputs += 1;

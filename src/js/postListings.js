@@ -1,5 +1,20 @@
-import { auth } from "./auth.js";
+import { auth, username } from "./auth.js";
 const postUrl = "https://api.noroff.dev/api/v1/auction/listings";
+
+const registerButton = document.getElementById("register");
+const logInButton = document.getElementById("logIn");
+const logOutButton = document.getElementById("logOut");
+
+function isLogedIn() {
+  if (auth && username) {
+    registerButton.style.display = "none";
+    logInButton.style.display = "none";
+  } else {
+    logOutButton.style.display = "none";
+  }
+}
+
+isLogedIn();
 
 const addFields = document.getElementById("addFields");
 const galleryInputs = document.getElementById("galleryInputs");
@@ -12,7 +27,7 @@ function addGalleryInputs() {
   fieldLabel.htmlFor = `gallery${inputs}`;
   fieldLabel.innerHTML = `Picture ${inputs}`;
   const field = document.createElement("input");
-  field.type = "text";
+  field.type = "url";
   field.className = "form-control rounded-0 pictures";
   field.id = `gallery${inputs}`;
 
@@ -25,13 +40,20 @@ addFields.addEventListener("click", addGalleryInputs);
 // Post listing
 
 const createForm = document.getElementById("createForm");
-const createButton = document.getElementById("createButton");
 const title = document.getElementById("title");
 const description = document.getElementById("description");
 const endsAt = document.getElementById("endsAt");
+
+// Min and max date and time for endsAt date
+const todayDate = new Date();
+endsAt.min = todayDate.toISOString().slice(0, 16);
+
+// max date is set to one month from today, to avoid long auction
+const maxDate = new Date(todayDate);
+maxDate.setMonth(todayDate.getMonth() + 1);
+endsAt.max = maxDate.toISOString().slice(0, 16);
+
 const createError = document.getElementById("createError");
-const titleMessage = document.getElementById("titleMessage");
-const mediaMessage = document.getElementById("mediaMessage");
 
 /**
  * Create a listing with API POST request

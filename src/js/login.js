@@ -38,7 +38,7 @@ async function loginUser(event) {
       localStorage.setItem("accessToken", json.accessToken);
       localStorage.setItem("username", json.name);
       console.log("Hurra", json.name);
-      window.location.href = "/index.html";
+      window.location.reload();
     } else {
       loginError.innerHTML = `${json.errors[0].message}`;
       setTimeout(function () {
