@@ -11,6 +11,8 @@ function isLogedIn() {
     logInButton.style.display = "none";
   } else {
     logOutButton.style.display = "none";
+    navSell.style.display = "none";
+    navProfile.style.display = "none";
   }
 }
 

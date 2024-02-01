@@ -10,6 +10,8 @@ const myOptions = document.getElementById("myOptions");
 const registerButton = document.getElementById("register");
 const logInButton = document.getElementById("logIn");
 const logOutButton = document.getElementById("logOut");
+const navSell = document.getElementById("navSell");
+const navProfile = document.getElementById("navProfile");
 
 function isLogedIn(detailData) {
   if (auth && username) {
@@ -25,6 +27,8 @@ function isLogedIn(detailData) {
     logOutButton.style.display = "none";
     options.style.display = "none";
     myOptions.style.display = "none";
+    navSell.style.display = "none";
+    navProfile.style.display = "none";
   }
 }
 

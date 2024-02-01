@@ -3,6 +3,8 @@ import { auth, username } from "./auth.js";
 const registerButton = document.getElementById("register");
 const logInButton = document.getElementById("logIn");
 const logOutButton = document.getElementById("logOut");
+const navSell = document.getElementById("navSell");
+const navProfile = document.getElementById("navProfile");
 
 function isLogedIn() {
   if (auth && username) {
@@ -10,6 +12,8 @@ function isLogedIn() {
     logInButton.style.display = "none";
   } else {
     logOutButton.style.display = "none";
+    navSell.style.display = "none";
+    navProfile.style.display = "none";
   }
 }
 
