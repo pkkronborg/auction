@@ -52,7 +52,7 @@
               <li class="nav-item">
                 <button
                   type="button"
-                  class="btn btn-primary active rounded-0"
+                  class="btn btn-primary active rounded-0 me-2"
                   data-bs-toggle="modal"
                   data-bs-target="#registerModal"
                   id="register"
@@ -86,6 +86,115 @@
       </nav>
     </header>
     <main class="container row m-auto">
+      <!-- Login modal -->
+      <div class="modal fade" id="loginModal">
+        <div class="modal-dialog">
+          <div class="modal-content rounded-0">
+            <button
+              type="button"
+              class="btn-close ms-auto me-3 mt-3"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <div class="modal-body d-flex justify-content-center">
+              <div class="card p-5 rounded-0 my-5">
+                <h2 class="text-center">Log in</h2>
+                <form class="d-flex flex-column align-items-center" id="login">
+                  <div class="pt-2">
+                    <label for="mail" class="form-label">E-mail</label>
+                    <input
+                      type="email"
+                      class="form-control rounded-0"
+                      id="mail"
+                      required
+                    />
+                  </div>
+                  <div class="pt-2">
+                    <label for="password" class="form-label">Password</label>
+                    <input
+                      type="password"
+                      class="form-control rounded-0"
+                      id="password"
+                      required
+                    />
+                  </div>
+                  <button
+                    class="btn btn-secondary mt-3 rounded-0"
+                    type="submit"
+                    value="Login"
+                  >
+                    Log in
+                  </button>
+                  <div id="loginError" class="text-danger"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Register modal -->
+      <div class="modal fade" id="registerModal">
+        <div class="modal-dialog">
+          <div class="modal-content rounded-0">
+            <button
+              type="button"
+              class="btn-close ms-auto me-3 mt-3"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <div class="modal-body d-flex justify-content-center">
+              <div class="card p-5 rounded-0 my-5">
+                <h2 class="text-center">Register new user</h2>
+                <form
+                  class="d-flex flex-column align-items-center"
+                  id="registerForm"
+                >
+                  <div class="pt-2">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input
+                      type="email"
+                      class="form-control rounded-0"
+                      pattern="[\w\-.]+@(stud.)?noroff.no$"
+                      title="Only Noroff student or teacher emails are valid."
+                      id="email"
+                      required
+                    />
+                  </div>
+                  <div class="pt-2">
+                    <label for="username" class="form-label">Username</label>
+                    <input
+                      type="text"
+                      class="form-control rounded-0"
+                      id="username"
+                      minlength="5"
+                      required
+                    />
+                  </div>
+                  <div class="pt-2">
+                    <label for="password2" class="form-label">Password</label>
+                    <input
+                      type="text"
+                      class="form-control rounded-0"
+                      id="password2"
+                      required
+                      minlength="8"
+                    />
+                  </div>
+                  <button
+                    class="btn btn-secondary mt-3 rounded-0"
+                    type="submit"
+                    value="registerForm"
+                  >
+                    Register
+                  </button>
+                  <div id="registerError" class="text-danger"></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="col-12 col-lg-6 col-md-8 m-auto">
         <h1 class="text-center mt-4">Create listings</h1>
         <form id="createForm">
@@ -130,6 +239,13 @@
             >
               Add more pictures
             </button>
+            <button
+              class="btn btn-secondary rounded-0"
+              type="button"
+              id="removeFields"
+            >
+              Remove picture
+            </button>
           </div>
           <div class="pt-2" id="galleryInputs"></div>
           <div class="pt-4">
@@ -159,6 +275,9 @@
       </div>
     </main>
     <script type="module" src="../src/js/postListings.js"></script>
+    <script type="module" src="../src/js/logOut.js"></script>
+    <script type="module" src="../src/js/logIn.js"></script>
+    <script src="src/js/registerUser.js"></script>
   </body>
   <footer></footer>
 </html>

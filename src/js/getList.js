@@ -24,17 +24,36 @@ const activeListings = document.getElementById("activeListings");
 const baseUrl =
   "https://api.noroff.dev/api/v1/auction/listings?_seller=true&_bids=true";
 let url = baseUrl;
+const sortBy = document.getElementById("sortBy");
 
 // event listeners for active filter and search
 activeListings.addEventListener("change", activeChange);
+sortBy.addEventListener("change", activeChange);
 searchButton.addEventListener("click", search);
 
 function activeChange() {
+  console.log("Sorby value", sortBy.value);
   if (activeListings.checked === true) {
     url = baseUrl + "&_active=true";
+    if (sortBy.value === "sortNameAsc") {
+      url += "&sort=title&sortOrder=asc";
+    } else if (sortBy.value === "sortCreatedDesc") {
+      url += "&sort=created&sortOrder=desc";
+    } else if (sortBy.value === "sortEndsAtAsc") {
+      url += "&sort=endsAt&sortOrder=asc";
+    }
+    console.log("2", url);
     getListings(url);
   } else {
     url = baseUrl;
+    if (sortBy.value === "sortNameAsc") {
+      url += "&sort=title&sortOrder=asc";
+    } else if (sortBy.value === "sortCreatedDesc") {
+      url += "&sort=created&sortOrder=desc";
+    } else if (sortBy.value === "sortEndsAtDesc") {
+      url += "&sort=endsAt&sortOrder=desc";
+    }
+    console.log("2*", url);
     getListings(url);
   }
 }

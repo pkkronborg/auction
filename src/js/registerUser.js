@@ -37,7 +37,8 @@ async function registerUser(event) {
     const json = await registerResponse.json();
     console.log(registerResponse);
     if (registerResponse.ok === true) {
-      //window.location.reload();
+      alert("User created. Please log in.");
+      window.location.reload();
     } else {
       console.log("Error");
       registerError.innerHTML = `${json.errors[0].message}`;

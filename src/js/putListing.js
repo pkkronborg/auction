@@ -41,7 +41,7 @@ function addGalleryInputs() {
   fieldLabel.id = `galleryLabel${inputs}`;
   fieldLabel.innerHTML = `Picture ${inputs}`;
   const field = document.createElement("input");
-  field.type = "text";
+  field.type = "url";
   field.className = "form-control rounded-0 pictures";
   field.id = `gallery${inputs}`;
 

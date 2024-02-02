@@ -52,7 +52,7 @@
               <li class="nav-item">
                 <button
                   type="button"
-                  class="btn btn-primary active rounded-0"
+                  class="btn btn-primary active rounded-0 me-2"
                   data-bs-toggle="modal"
                   data-bs-target="#registerModal"
                   id="register"
@@ -112,7 +112,7 @@
                   <div class="pt-2">
                     <label for="password" class="form-label">Password</label>
                     <input
-                      type="text"
+                      type="password"
                       class="form-control rounded-0"
                       id="password"
                       required
@@ -197,12 +197,13 @@
       </div>
       <div class="col-12 col-lg-6 col-md-8 m-auto">
         <h1 class="text-center mt-4">Edit listing</h1>
-        <form id="editForm" novalidate>
+        <form id="editForm">
           <div class="pt-4">
             <label for="editTitle" class="form-label">Title</label>
             <input
               type="text"
               class="form-control rounded-0"
+              minlength="3"
               id="editTitle"
               required
             />
@@ -213,6 +214,7 @@
             <textarea
               class="form-control rounded-0"
               id="editDescription"
+              minlength="5"
               rows="3"
               required
             ></textarea>
@@ -221,7 +223,7 @@
           <div class="pt-4">
             <label for="editMedia" class="form-label">Picture</label>
             <input
-              type="text"
+              type="url"
               class="form-control rounded-0 pictures"
               id="editMedia"
               required
@@ -260,6 +262,8 @@
       </div>
     </main>
     <script type="module" src="/src/js/putListing.js"></script>
+    <script type="module" src="/src/js/login.js"></script>
+    <script type="module" src="/src/js/logOut.js"></script>
   </body>
   <footer></footer>
 </html>

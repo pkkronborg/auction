@@ -52,7 +52,7 @@
               <li class="nav-item">
                 <button
                   type="button"
-                  class="btn btn-primary active rounded-0"
+                  class="btn btn-primary active rounded-0 me-2"
                   data-bs-toggle="modal"
                   data-bs-target="#registerModal"
                   id="register"
@@ -114,7 +114,7 @@
                   <div class="pt-2">
                     <label for="password" class="form-label">Password</label>
                     <input
-                      type="text"
+                      type="password"
                       class="form-control rounded-0"
                       id="password"
                       required
@@ -199,11 +199,14 @@
       </div>
 
       <h1>Listings</h1>
-      <div class="d-flex flex-row justify-content-evenly mt-3">
-        <div class="d-flex flex-row form-inputs pe-3">
+      <div
+        class="d-flex flex-column flex-md-row justify-content-evenly mt-3 gap-3"
+      >
+        <!-- Search -->
+        <div class="d-flex flex-row form-inputs">
           <input
             class="form-control rounded-0"
-            type="text"
+            type="search"
             placeholder="Search"
             for="search"
             title="search field"
@@ -219,14 +222,27 @@
             <i class="bi bi-search"></i>
           </button>
         </div>
-        <div class="custom-control custom-checkbox">
+
+        <!-- Sorting -->
+        <div>
+          <select class="form-select rounded-0" id="sortBy">
+            <option selected>Sort by</option>
+            <option value="sortNameAsc">A-Z</option>
+            <option value="sortNameDesc">Z-A</option>
+            <option value="sortCreatedDesc">Newest</option>
+            <option value="sortEndsAtAsc">Ending soon</option>
+          </select>
+        </div>
+
+        <!-- Check only active/ all listings-->
+        <div class="form-check d-flex align-items-center">
           <input
             type="checkbox"
-            class="custom-control-input"
+            class="form-check-input rounded-0 me-1"
             id="activeListings"
             checked
           />
-          <label class="custom-control-label" for="activeListings"
+          <label class="form-check-label" for="activeListings"
             >Only active listings</label
           >
         </div>

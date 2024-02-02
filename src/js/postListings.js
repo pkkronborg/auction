@@ -6,6 +6,7 @@ const logInButton = document.getElementById("logIn");
 const logOutButton = document.getElementById("logOut");
 const navSell = document.getElementById("navSell");
 const navProfile = document.getElementById("navProfile");
+const createButton = document.getElementById("createButton");
 
 function isLogedIn() {
   if (auth && username) {
@@ -15,12 +16,14 @@ function isLogedIn() {
     logOutButton.style.display = "none";
     navSell.style.display = "none";
     navProfile.style.display = "none";
+    createButton.style.display = "none";
   }
 }
 
 isLogedIn();
 
 const addFields = document.getElementById("addFields");
+const removeFields = document.getElementById("removeFields");
 const galleryInputs = document.getElementById("galleryInputs");
 let inputs = 0;
 
@@ -29,6 +32,7 @@ function addGalleryInputs() {
   const fieldLabel = document.createElement("label");
   fieldLabel.className = "form-label";
   fieldLabel.htmlFor = `gallery${inputs}`;
+  fieldLabel.id = `galleryLabel${inputs}`;
   fieldLabel.innerHTML = `Picture ${inputs}`;
   const field = document.createElement("input");
   field.type = "url";
@@ -39,7 +43,16 @@ function addGalleryInputs() {
   galleryInputs.appendChild(field);
 }
 
+function removeGalleryInputs() {
+  let removeField = document.getElementById(`gallery${inputs}`);
+  let removeFieldLabel = document.getElementById(`galleryLabel${inputs}`);
+  removeField.remove();
+  removeFieldLabel.remove();
+  inputs -= 1;
+}
+
 addFields.addEventListener("click", addGalleryInputs);
+removeFields.addEventListener("click", removeGalleryInputs);
 
 // Post listing
 
@@ -104,7 +117,6 @@ async function createListings(event) {
     const response = await fetch(postUrl, postOptions);
     const json = await response.json();
     if (response.ok === true) {
-      console.log(response);
       window.location.href = `/detail.html?id=${json.id}`;
     } else {
       createError.innerHTML = `${json.errors[0].message}`;
