@@ -11883,4 +11883,12 @@ textarea.form-control-lg {
   color: white;
 }
 
+body {
+  font-family: "Open sans", sans-serif;
+}
+
+h1, .h1, h2, .h2 {
+  font-family: "Montserrat", sans-serif;
+}
+
 /*# sourceMappingURL=index.css.map */
