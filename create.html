@@ -42,7 +42,9 @@
                 <a class="nav-link" href="/index.html" id="navHome">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="create.html" id="navSell">Sell</a>
+                <a class="nav-link active" href="create.html" id="navSell"
+                  >Sell</a
+                >
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="profile.html" id="navProfile"
@@ -52,7 +54,7 @@
               <li class="nav-item">
                 <button
                   type="button"
-                  class="btn btn-primary active rounded-0 me-2"
+                  class="btn btn-secondary rounded-0 me-2"
                   data-bs-toggle="modal"
                   data-bs-target="#registerModal"
                   id="register"
@@ -63,7 +65,7 @@
               <li class="nav-item">
                 <button
                   type="button"
-                  class="btn btn-primary active rounded-0"
+                  class="btn btn-secondary rounded-0"
                   data-bs-toggle="modal"
                   data-bs-target="#loginModal"
                   id="logIn"
@@ -74,7 +76,7 @@
               <li class="nav-item">
                 <button
                   type="button"
-                  class="btn btn-primary active rounded-0"
+                  class="btn btn-secondary rounded-0"
                   id="logOut"
                 >
                   Log out
@@ -119,7 +121,7 @@
                     />
                   </div>
                   <button
-                    class="btn btn-secondary mt-3 rounded-0"
+                    class="btn btn-primary mt-3 rounded-0"
                     type="submit"
                     value="Login"
                   >
@@ -182,7 +184,7 @@
                     />
                   </div>
                   <button
-                    class="btn btn-secondary mt-3 rounded-0"
+                    class="btn btn-primary mt-3 rounded-0"
                     type="submit"
                     value="registerForm"
                   >
@@ -225,6 +227,7 @@
             <input
               type="url"
               class="form-control rounded-0 pictures"
+              placeholder="http://www.example.no/image.png"
               id="media"
               required
             />
@@ -233,16 +236,17 @@
 
           <div class="pt-2">
             <button
-              class="btn btn-secondary rounded-0"
+              class="btn btn-primary rounded-0"
               type="button"
               id="addFields"
             >
               Add more pictures
             </button>
             <button
-              class="btn btn-secondary rounded-0"
+              class="btn btn-danger rounded-0"
               type="button"
               id="removeFields"
+              disabled
             >
               Remove picture
             </button>
@@ -274,10 +278,10 @@
         </form>
       </div>
     </main>
+    <footer></footer>
     <script type="module" src="../src/js/postListings.js"></script>
     <script type="module" src="../src/js/logOut.js"></script>
     <script type="module" src="../src/js/logIn.js"></script>
     <script src="src/js/registerUser.js"></script>
   </body>
-  <footer></footer>
 </html>

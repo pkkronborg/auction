@@ -42,11 +42,13 @@ function addGalleryInputs() {
   fieldLabel.innerHTML = `Picture ${inputs}`;
   const field = document.createElement("input");
   field.type = "url";
+  field.placeholder = "https://example.no/image.png";
   field.className = "form-control rounded-0 pictures";
   field.id = `gallery${inputs}`;
 
   galleryInputs.appendChild(fieldLabel);
   galleryInputs.appendChild(field);
+  editRemoveFields.disabled = false;
 }
 
 function removeGalleryInputs() {
@@ -55,6 +57,9 @@ function removeGalleryInputs() {
   removeField.remove();
   removeFieldLabel.remove();
   inputs -= 1;
+  if (inputs === 0) {
+    editRemoveFields.disabled = true;
+  }
 }
 
 editAddFields.addEventListener("click", addGalleryInputs);
@@ -93,16 +98,16 @@ function editHTML(data) {
       editFields.value = element;
     }
   }
+  if (data.media.length <= 1) {
+    editRemoveFields.disabled = true;
+  } else {
+    editRemoveFields.disabled = false;
+  }
 }
 
 // Edit listing
 
 const editForm = document.getElementById("editForm");
-const title = document.getElementById("title");
-const description = document.getElementById("description");
-
-const editTitleMessage = document.getElementById("editTitleMessage");
-const editMediaMessage = document.getElementById("editMediaMessage");
 
 /**
  * Edit a listing with API PUT request
@@ -124,7 +129,6 @@ const editMediaMessage = document.getElementById("editMediaMessage");
 async function editListings(event) {
   event.preventDefault();
   const pictures = document.querySelectorAll(".pictures");
-  editMediaMessage.innerHTML = "";
   let pictureArray = [];
   for (let picture of pictures) {
     if (picture.value) {

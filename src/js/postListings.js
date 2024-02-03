@@ -36,11 +36,14 @@ function addGalleryInputs() {
   fieldLabel.innerHTML = `Picture ${inputs}`;
   const field = document.createElement("input");
   field.type = "url";
+  field.placeholder = "https://example.no/image.png";
   field.className = "form-control rounded-0 pictures";
   field.id = `gallery${inputs}`;
 
   galleryInputs.appendChild(fieldLabel);
   galleryInputs.appendChild(field);
+  removeFields.disabled = false;
+  console.log(removeFields.disabled);
 }
 
 function removeGalleryInputs() {
@@ -49,6 +52,9 @@ function removeGalleryInputs() {
   removeField.remove();
   removeFieldLabel.remove();
   inputs -= 1;
+  if (inputs === 0) {
+    removeFields.disabled = true;
+  }
 }
 
 addFields.addEventListener("click", addGalleryInputs);
