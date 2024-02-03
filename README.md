@@ -9,14 +9,14 @@ This is my Semester Project 2. The website is built with HTML, SASS, JS, Bootstr
 
 There are 5 pages: index with all listings (home), create listing, edit listing, detail page and profile page.
 
-An user can search thorugh all listings, sort by: title, newest and ending soon, and can filter to see only active listings
-A user can register as a registered user, needs to have stud.noroff.no or noroff.no email
-A registered user may login
-A registered user may logout
-A registered user can see their profile and update avatar
-A registered user may create a new listing with media gallery, title, description and end date
-A registered user can add a bid to other registered users listings and see a history of bids
-A registered user can edit and delete their own listings
+* An user can search thorugh all listings, sort by: title, newest and ending soon, and can filter to see only active listings
+* A user can register as a registered user, needs to have stud.noroff.no or noroff.no email
+* A registered user may login
+* A registered user may logout
+* A registered user can see their profile and update avatar
+* A registered user may create a new listing with media gallery, title, description and end date
+* A registered user can add a bid to other registered users listings and see a history of bids
+* A registered user can edit and delete their own listings
 
 
 
