@@ -103,7 +103,7 @@ function createDetailHtml(data) {
       }
     }
   } else {
-    carouselItem = `<img src="src/img/placeholder.jpg" class="detailsMedia" alt="No image added placeholder">`;
+    carouselItem = `<img src="src/img/placeholder.png" class="detailsMedia" alt="No image added placeholder">`;
   }
   detailListing.innerHTML = `
   <h1 class= "d-flex justify-content-center my-4">${title}</h1>

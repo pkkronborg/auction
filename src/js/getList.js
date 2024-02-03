@@ -104,21 +104,10 @@ function writeListings(listings) {
     if (listings[i] === undefined) {
       return;
     }
-    const {
-      id,
-      title,
-      description,
-      seller,
-      media,
-      created,
-      endsAt,
-      updated,
-      bids,
-      _count,
-    } = listings[i];
+    const { id, title, media, endsAt, bids } = listings[i];
     let itemMedia = [];
     if (media.length === 0) {
-      itemMedia.push("src/img/placeholder.jpg");
+      itemMedia.push("src/img/placeholder.png");
     } else {
       itemMedia = media;
     }

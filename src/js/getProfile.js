@@ -46,7 +46,14 @@ async function getProfile() {
     const { name, email, avatar, credits, listings } = result;
     listingsData = listings;
     console.log(listingsData);
-    const profileAvatar = avatar || "";
+    console.log(avatar);
+    let profileAvatar = "";
+    if (!avatar) {
+      profileAvatar = "src/img/profilePlaceholder.png";
+    } else {
+      profileAvatar = avatar;
+    }
+
     profilePage.innerHTML += `
     <div class="row row-cols-2 row-gap-5">
       <div class="d-flex justify-content-end">
